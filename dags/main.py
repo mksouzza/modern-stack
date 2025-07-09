@@ -26,3 +26,5 @@ def pipeline():
     t3 = third_activity()
 
     t1 >> t2 >> t3
+
+pipeline()
