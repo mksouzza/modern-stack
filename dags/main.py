@@ -4,7 +4,6 @@ from datetime import datetime
 
 @dag(
     dag_id="test",
-    description="new etl",
     schedule="@daily",
     start_date=datetime(2025,7,9), # Using the current date
     catchup=False,
@@ -31,5 +30,5 @@ def pipeline():
 
     t1 >> t2 >> t3
 
-# You no longer call pipeline() explicitly like pipeline().
-# The @dag decorator handles registration.
+
+pipeline()
