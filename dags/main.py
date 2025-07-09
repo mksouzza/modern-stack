@@ -1,11 +1,15 @@
 from time import sleep
-
-from airflow.decorators import dag, task
+from airflow.decorators import dag, task # Correct import for the decorator
 from datetime import datetime
 
-dag(dag_id = "test", description = "new etl", schedule = "@daily", start_date=datetime(2025,7,9), catchup=False)
+@dag(
+    dag_id="test",
+    description="new etl",
+    schedule="@daily",
+    start_date=datetime(2025,7,9), # Using the current date
+    catchup=False,
+)
 def pipeline():
-
     @task
     def first_activity():
         print("first activity ran successfully")
@@ -27,4 +31,5 @@ def pipeline():
 
     t1 >> t2 >> t3
 
-pipeline()
+# You no longer call pipeline() explicitly like pipeline().
+# The @dag decorator handles registration.
