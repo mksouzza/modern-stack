@@ -4,7 +4,7 @@ from airflow.models.dag import DAG
 from airflow.decorators import task
 from datetime import datetime
 
-@dag(dag_id = "test", description = "new etl", schedule = "@daily", start_date=datetime(2025,7,9), catchup=False)
+@DAG(dag_id = "test", description = "new etl", schedule = "@daily", start_date=datetime(2025,7,9), catchup=False)
 def pipeline():
 
     @task
